@@ -24,9 +24,21 @@ provider "aws" {
 
 # AWS East (Northern Virginia) Provider
 provider "aws" {
-  alias      = "east"
+  alias = "east"
 
   access_key = var.aws_access_key
   secret_key = var.aws_secret_key
   region     = "us-east-1"
+}
+
+
+### Configure Backend ###
+
+# Terraform S3 Backend
+terraform {
+  backend "s3" {
+    bucket = "jacobfgrant-tfstate"
+    key    = "cv-pipeline/terraform.tfstate"
+    region = "us-west-1"
+  }
 }
