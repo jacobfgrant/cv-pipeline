@@ -2,8 +2,8 @@
 
 # Local Values
 locals {
-  s3_origin_id            = "CV_S3_Bucket"
-  cloudfront_cnames       = compact([var.domain_name])
+  s3_origin_id      = "CV_S3_Bucket"
+  cloudfront_cnames = compact([var.domain_name])
 }
 
 
@@ -69,9 +69,9 @@ resource "aws_cloudfront_distribution" "cv_distribution" {
   }
 
   viewer_certificate {
-    acm_certificate_arn            = aws_acm_certificate.cv_distribution_cert.arn
-    minimum_protocol_version       = "TLSv1.2_2018"
-    ssl_support_method             = "sni-only"
+    acm_certificate_arn      = aws_acm_certificate.cv_distribution_cert.arn
+    minimum_protocol_version = "TLSv1.2_2018"
+    ssl_support_method       = "sni-only"
   }
 
   tags = local.tags_map
