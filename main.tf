@@ -32,6 +32,17 @@ provider "aws" {
 }
 
 
+# Terraform Required Providers
+terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+    }
+  }
+  required_version = ">= 0.13"
+}
+
+
 ### Configure Backend ###
 
 # Terraform S3 Backend

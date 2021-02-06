@@ -8,17 +8,17 @@ data "aws_iam_policy_document" "cv_s3_bucket_policy_document" {
 
     principals {
       type        = "AWS"
-      identifiers = ["${aws_cloudfront_origin_access_identity.cv_distribution_identity.iam_arn}"]
+      identifiers = [aws_cloudfront_origin_access_identity.cv_distribution_identity.iam_arn]
     }
   }
 
   statement {
     actions   = ["s3:ListBucket"]
-    resources = ["${aws_s3_bucket.cv_bucket.arn}"]
+    resources = [aws_s3_bucket.cv_bucket.arn]
 
     principals {
       type        = "AWS"
-      identifiers = ["${aws_cloudfront_origin_access_identity.cv_distribution_identity.iam_arn}"]
+      identifiers = [aws_cloudfront_origin_access_identity.cv_distribution_identity.iam_arn]
     }
   }
 }
