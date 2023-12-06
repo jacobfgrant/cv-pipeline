@@ -81,6 +81,6 @@ variable "domain_name" {
 # S3 Variables
 variable "s3_versioning_enabled" {
   type        = string
-  description = "Enable versioning on the S3 bucket"
-  default     = false
+  description = "Enable versioning on the S3 bucket (Enabled/Suspended)"
+  default     = "Suspended"
 }
