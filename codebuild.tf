@@ -30,7 +30,7 @@ resource "aws_codebuild_project" "cv_pipeline" {
 
   environment {
     compute_type                = "BUILD_GENERAL1_SMALL"
-    image                       = "aws/codebuild/standard:3.0"
+    image                       = "aws/codebuild/standard:7.0"
     type                        = "LINUX_CONTAINER"
     image_pull_credentials_type = "CODEBUILD"
   }
@@ -49,5 +49,5 @@ resource "aws_codebuild_project" "cv_pipeline" {
     report_build_status = true
   }
 
-  #tags = local.tags_map
+  tags = local.tags_map
 }
